@@ -22,5 +22,5 @@ void loop()
   Serial.print(' -- ');
   Serial.println(thermocouple.readCelsius());
   dimmer.setPower(outVal);
-  delay(500)
+  delay(500);
 }
