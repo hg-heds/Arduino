@@ -15,9 +15,8 @@ void setup() {
   dimmer.begin(NORMAL_MODE, ON);
 }
 
-void loop() 
-{
-  outVal = map(analogRead(0), 465, 1023, 0, 100);
+void loop() {
+  outVal = map(analogRead(0), 485, 1023, 0, 100);
   Serial.print(outVal); 
   Serial.print(' -- ');
   Serial.println(thermocouple.readCelsius());
