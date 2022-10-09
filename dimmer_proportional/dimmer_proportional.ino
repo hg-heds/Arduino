@@ -16,7 +16,7 @@ int power = 100;
 float e = 0;
 
 int setPower(float err){
-    p = 3*err;
+    float p = 20*err;
     if (p > 100) p = 100;
     if (p < 0) p = 0;
     return (int)p;
@@ -44,9 +44,9 @@ void loop() {
     power = setPower(e);
     Serial.print(setPoint); 
     Serial.print(" -- ");
-    Serial.print(temp);
+    Serial.print(T);
     Serial.print(" -- ");
     dimmer.setPower(100-power);
     Serial.println(power);
-    delay(250);
+    delay(500);
 }

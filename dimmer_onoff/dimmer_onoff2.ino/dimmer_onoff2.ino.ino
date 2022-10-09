@@ -15,24 +15,16 @@ int power = 100;
 
 void setup() {
   Serial.begin(9600);
-  dimmer.begin(NORMAL_MODE, ON);
+  dimmer.begin(TOGGLE_MODE, OFF);
+  dimmer.toggleSettings(0, 100);
+  dimmer.setState(ON);
   delay(1000);
 }
 
 void loop() {
-  setPoint = map(analogRead(0), 0, 1023, 30, 100);
   temp = thermocouple.readCelsius();
-  Serial.print(setPoint); 
+  Serial.print(power); 
   Serial.print(" -- ");
-  Serial.print(temp);
-  Serial.print(" -- ");
-  if (temp < setPoint - range){
-    power = 0;
-  }
-  if (temp > setPoint + range){
-    power = 100;
-  }
-  dimmer.setPower(power);
-  Serial.println(power);
-  delay(250);
+  Serial.println(temp);
+  delay(1000);
 }
